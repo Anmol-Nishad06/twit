@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+            Twit
+        {% endblock  %}
+    </title>
+    <link rel="stylesheet" href="{% static "layout.css" %}">
+</head>
+<body>
+    <div class="container">
+        {% block content %}
+            <h1>Welcome to Twit</h1>
+        {% endblock %}
+        {% block extra %}
+            <p>This is the default content.</p>
+        {% endblock %}
+    </div>
+    {% block scripts %}
+        <script src="{% static '' %}"></script>
+    {% endblock %}
+</body>
+</html>
