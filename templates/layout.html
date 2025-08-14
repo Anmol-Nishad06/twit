@@ -1,4 +1,5 @@
 {% load static %}
+{% load django_browser_reload %}    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +10,23 @@
             Twit
         {% endblock  %}
     </title>
-    <link rel="stylesheet" href="{% static "layout.css" %}">
+    <link rel="stylesheet" href="{% static "C:\Users\HP\Desktop\twit\static\layout.css" %}">
+    {% block css %}  <link rel="stylesheet" href="#"> {% endblock %}
 </head>
 <body>
+    <div class="navbar bg-gray-800 text-white p-4 flex justify-between">
+        {% block nav %}
+            <a href="#" class="logo">TWIT</a>
+            <div class="search">
+                <input type="text" placeholder="Search..." class="search-input" value="" >
+                <button>Search</button>
+            </div>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="#">Profile</a>
+            <a href="#">Settings</a>
+            <a href="#">Logout</a>
+        {% endblock %}
+    </div>
     <div class="container">
         {% block content %}
             <h1>Welcome to Twit</h1>
@@ -21,7 +36,7 @@
         {% endblock %}
     </div>
     {% block scripts %}
-        <script src="{% static '' %}"></script>
+        <script src="{% static 'layout.js' %}"></script>
     {% endblock %}
 </body>
 </html>

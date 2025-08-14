@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block title %} Home Page{% endblock %}
+<link rel="stylesheet" href="C:\Users\HP\Desktop\twit\first\static\forms.css">
+
+<style>
+    .twitcard{
+    height: 100px;
+    width: 160px;
+    background-color: #94a9be;
+}
+</style>
+
+{% block content %}
+    {% for twit in twits %}
+        <div class="twitcard">
+            <h3>{{twit.user.username}}</h3>
+            {% comment %} <img src="{{twit.image.url}}" alt=""> {% endcomment %}
+            <p>{{twit.content}}</p>
+            <p>{{twit.created_at}}</p>
+        </div>
+
+    {% endfor %}
+
+{% endblock %}

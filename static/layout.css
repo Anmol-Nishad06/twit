@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f2f5;
+}
+
+a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    justify-self: left;
+    align-self: start;
+    color: rgb(186, 196, 247);
+}
+
+.search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 27%;
+    background-color: white;
+    border-radius: 1rem;
+    button {
+        /* padding: 8px ; */
+        border-radius: 4px;
+        border: none;
+        background-color: #4a90e2;
+        border-radius: 0.67rem;
+        color: white;
+        cursor: pointer;
+        height: 100%;
+        width: 12%;
+    }
+}
+
+.search-input {
+    /* padding: 8px; */
+    border-radius: 1rem;
+    border: 0;
+    width: 88%;
+    height: 95%;
+}
+
+.navbar {
+    background-color: #1e2e50;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px 20px;
+}
+
+/* .twitcard{
+    height: 10rem;
+    width: 15rem;
+    background-color: #94a9be;
+} */
