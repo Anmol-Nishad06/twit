@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %} Delete Twit {% endblock %}
+{% block css %}
+<link rel="stylesheet" href="/static/forms.css">
+<link rel="stylesheet" href="/static/delete.css">
+{% endblock %}
+
+{% block content %}
+    <div class="twiit">
+        <div class="twitcard">
+        
+        <div class="boxinbox">
+
+            <div class="image">
+                {% if twit.image %}
+                    <img src="{{twit.image.url}}" alt="Twit Image">
+                {% else %}
+                    <p>No image available</p>
+                {% endif %}
+            </div>
+            <p class="text" >{{twit.content}}</p>
+        </div>
+            <p class="date" >{{twit.created_at}}</p>
+        </div>
+        <h4>Are you sure you want to delete this twit?</h4>
+        <div class="box">
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <a href="{% url 'twit_list' %}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+        
+    </div>
+
+    
+    
+{% endblock %}

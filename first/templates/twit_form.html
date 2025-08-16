@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {% if form.instance.pk %}
+        Edit Twit
+    {% else %}
+        Create Twit
+    {% endif %}
+
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="/static/create.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endblock %}
+
+{% block content %}
+    <h1>{% if form.instance.pk %}Edit Twit{% else %}Create Twit{% endif %}</h1>
+    <div class="box">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% if form.instance.pk %}Update Twit{% else %}Create Twit{% endif %}</button>
+    </form>
+
+    <a href="{% url 'twit_list' %}">Back to Twit List</a>
+    </div>
+    
+
+
+{% endblock %}

@@ -1,5 +1,166 @@
-.twitcard{
-    height: 10rem;
-    width: 15rem;
-    background-color: #94a9be;
+.container {
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 20px;
 }
+
+.twitcard{
+    height: 27rem;
+    width: 22rem;
+    background-color:#394c74;
+    border-radius: 1rem;
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow : 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.username {
+    font-weight: bold;
+    color: #ffffff;
+    /* background-color: #043090; */
+    display: flex;
+    width: 100%;
+    align-items: center; /* changed from end to center */
+    border-radius: 1rem;
+    position: relative; /* add this for dropdown positioning */
+}
+
+.username i {
+    margin-left: auto;
+    align-self: center;
+    position: relative; /* ensure icon is positioned for dropdown */
+    z-index: 2;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none; /* keep hidden by default */
+    position: absolute;
+    top: 100%; /* position below the icon */
+    right: 0;   /* align to right edge of parent */
+    text-align: center;
+    background-color: #504b4b;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 10;
+    border-radius: 0.5rem;
+    padding: 8px 0;
+}
+
+/* Show dropdown when parent has a class like .show-dropdown */
+.username.show-dropdown .dropdown-content {
+    display: block;
+}
+
+.profile-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.boxinbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 97%;
+    height: 92%;
+    justify-self: center;
+    align-self: center;
+    color:beige;
+    border-radius: 1rem;
+}
+
+.image {
+    width: 100%;
+    height:65%;
+    display: flex;
+    /* background-color: darkgoldenrod; */
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    align-self: center;
+    background-color: #94a9be;
+    border: 2px solid #ccc;
+    border-radius: 1rem;
+    margin-bottom: 15px auto;
+    overflow: hidden;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit:contain;
+
+    }
+}
+
+
+.text {
+    height: 30%;
+    width: 100%;
+    font-size: 0.9rem;
+    color: #ffffff;
+    border-radius: 1rem;
+    justify-self: center;
+    align-self: center;
+    margin-top: 5px;
+    margin-bottom: 2px;
+    text-align: left;
+}
+
+
+.date {
+    font-size: 0.6rem;
+    color: #ffffff;
+    margin-top: 10px;
+    text-align: right;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2.5rem;
+    background-color: #394c74;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color: #ffffff;
+    z-index: 100;
+}
+
+.create {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: #bfc3cd;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    bottom: 0;
+    /* margin-bottom: 0; */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    z-index: 101;
+}
+
+.create i {
+    color: #394c74;
+    font-size: 3rem;
+}
+

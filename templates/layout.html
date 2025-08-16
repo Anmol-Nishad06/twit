@@ -11,6 +11,7 @@
         {% endblock  %}
     </title>
     <link rel="stylesheet" href="{% static "C:\Users\HP\Desktop\twit\static\layout.css" %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     {% block css %}  <link rel="stylesheet" href="#"> {% endblock %}
 </head>
 <body>
@@ -31,10 +32,16 @@
         {% block content %}
             <h1>Welcome to Twit</h1>
         {% endblock %}
-        {% block extra %}
-            <p>This is the default content.</p>
-        {% endblock %}
     </div>
+
+    {% block foot %}
+    
+        <footer class="footer bg-gray-800 text-white p-4">
+            <p>&copy; 2023 Twit. All rights reserved.</p>
+        </footer>
+
+    {% endblock %}
+
     {% block scripts %}
         <script src="{% static 'layout.js' %}"></script>
     {% endblock %}

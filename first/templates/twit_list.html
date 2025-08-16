@@ -1,24 +1,65 @@
 {% extends "layout.html" %}
 {% block title %} Home Page{% endblock %}
-<link rel="stylesheet" href="C:\Users\HP\Desktop\twit\first\static\forms.css">
-
-<style>
-    .twitcard{
-    height: 100px;
-    width: 160px;
-    background-color: #94a9be;
-}
-</style>
+{% block css %}
+<link rel="stylesheet" href="/static/forms.css">
+{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 {% block content %}
     {% for twit in twits %}
         <div class="twitcard">
-            <h3>{{twit.user.username}}</h3>
-            {% comment %} <img src="{{twit.image.url}}" alt=""> {% endcomment %}
-            <p>{{twit.content}}</p>
-            <p>{{twit.created_at}}</p>
+            <div class="username">
+                <div class="profile-image">
+                    
+                    {% if twit.user.profile_image %}
+                        <img src="{{twit.user.profile_image.url}}" alt="Profile Image">
+                    {% else %}
+                        <img src="/static/images/devilpfp.jpg" alt="Default Profile Image">
+                    {% endif %}
+
+                </div>
+                <h3>{{twit.user.username}}</h3>
+                <i class="fa-solid fa-ellipsis-vertical"  ></i>
+                <div class="dropdown-content">
+                    {% if user.username == twit.user.username %}
+                        <a href="{% url 'twit_edit' twit.pk%}">Edit</a><br>
+                        <a href="{%url 'twit_delete' twit.pk %}">Delete</a> <br>
+                    {% else %}
+                        <a href="#">Report</a> <br>
+                    {% endif %}
+                </div>
+            </div>
+        
+        <div class="boxinbox">
+
+            <div class="image">
+                {% if twit.image %}
+                    <img src="{{twit.image.url}}" alt="Twit Image">
+                {% else %}
+                    <p>No image available</p>
+                {% endif %}
+            </div>
+            <p class="text" >{{twit.content}}</p>
         </div>
+            <p class="date" >{{twit.created_at}}</p>
+        </div>
+        
 
     {% endfor %}
 
+{% endblock %}
+
+{% block foot %}
+
+    <footer class="footer bg-gray-800 text-white p-4">
+        <div class="create">
+                <a href="{% url 'twit_create' %}" class="create-twit-button"><i class="fa-solid fa-circle-plus"></i></a>
+        </div>
+        <p>&copy; 2023 Twit. All rights reserved.</p>
+    </footer>
+
+{% endblock %}
+
+{% block scripts %} 
+    <script src="/static/list.js" ></script>
 {% endblock %}
