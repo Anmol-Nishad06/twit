@@ -1,0 +1,16 @@
+{%extends "layout.html" %}
+{% block nav %}
+
+{% endblock %}
+
+{% block content %}
+
+    <h2>log_in </h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">login</button>
+    </form>
+    <p>Don't have a account?<a href="/register/">Register</a></p>
+
+{% endblock %}

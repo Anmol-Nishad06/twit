@@ -18,11 +18,13 @@ from django.contrib import admin
 from django.urls import path ,include
 from django.conf.urls.static import static
 from django.conf import settings
-from . import views 
+from . import views as core_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('first/', include('first.urls')),
     path("__reload__/", include("django_browser_reload.urls")),
-    path('',views.home, name='home'),
+    path('',include('first.urls'), name='home'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    # path('register/', core_views.register, name='register'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

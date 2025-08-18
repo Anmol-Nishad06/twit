@@ -1,0 +1,51 @@
+{%extends 'layout.html'%}
+{%load static%}
+
+{% block tittle %}
+Profile
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'profile.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'forms.css' %}"> {% endcomment %}
+{% endblock %}
+
+{% block nav %}
+ <a href="{%url 'home'%}">Home</a>
+{% endblock %}
+
+{% block content %} 
+
+<div class="profile-container">
+    <div class="profile-header">
+        {% if profile.profile_image %}
+            <img src="{{ profile.profile_image.url }}" alt="Profile Image" class="profile-image">
+        {% else %}
+            <img src="/static/images/default_profile.png" alt="Default Profile Image" class="profile-image">
+        {% endif %}
+         <h1>{{ profile.user.username }}</h1>
+
+        {% if profile.bio %}
+            <p class="bio">{{ profile.bio }}</p>
+
+        {% endif %}
+    </div>
+
+    <div class="twits">
+        
+        {% for twit in twits  %}
+            <div class="box">
+                {% if twit.image %}
+                    <img src="{{ twit.image.url }}" alt="Twit Image" class="image">
+
+                {% else %}
+                    <img src="/static/images/Default_pfp.svg.png" alt="Default Twit Image" class="image">
+                {% endif %}
+                <p class="text" >{{ twit.content }}</p>
+                <p class="date">{{ twit.created_at|date:"F j, Y, g:i a" }}</p>
+            </div>
+
+        {% endfor %}
+    </div>
+
+{% endblock %}
