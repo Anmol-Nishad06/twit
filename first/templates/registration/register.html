@@ -1,15 +1,21 @@
 {%extends "layout.html" %}
+{% load static %}
 {% block nav %}
 
 {% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'register.css' %}">
+{% endblock %}
 
 {% block content %}
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Register</button>
-    </form>
-
+    <h2>Register</h2>
+    <div class="box">    
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Register</button>
+        </form>
+    </div>
 
 
 {% endblock %}
